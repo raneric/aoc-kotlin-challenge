@@ -1,15 +1,42 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        var higherCal = Int.MIN_VALUE
+        var tempData = 0
+
+        input.map {
+            if (it.isNotEmpty()) {
+                tempData += it.toInt()
+            } else {
+                higherCal = higherCal.coerceAtLeast(tempData)
+                tempData = 0
+            }
+        }
+        return higherCal
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
-    }
+        var first = Int.MIN_VALUE
+        var second = Int.MIN_VALUE
+        var third = Int.MIN_VALUE
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+        var tempData = 0
+
+        input.map {
+            if (it.isNotEmpty()) {
+                tempData += it.toInt()
+            } else {
+                if (first < tempData) {
+                    first = tempData
+                } else if (second < tempData) {
+                    second = tempData
+                } else if (third < tempData) {
+                    third = tempData
+                }
+                tempData = 0
+            }
+        }
+        return first + second + third
+    }
 
     val input = readInput("Day01")
     println(part1(input))
