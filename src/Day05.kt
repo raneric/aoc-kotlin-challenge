@@ -9,8 +9,6 @@ fun main() {
         val stackNb = input[moveIndex - 2].trim().split(" ").last().toInt()
         val reversedData = transpose(stackList, stackNb)
 
-
-
         for (move in procedure) {
             stackSourceIndex = move[1] - 1
             stackDestinationIndex = move[2] - 1
