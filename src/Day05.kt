@@ -13,8 +13,7 @@ fun main() {
             stackSourceIndex = move[1] - 1
             stackDestinationIndex = move[2] - 1
             for (i in 1..move[0]) {
-                reversedData[stackDestinationIndex].add(0, reversedData[stackSourceIndex].first())
-                reversedData[stackSourceIndex].removeFirst()
+                reversedData[stackDestinationIndex].add(0, reversedData[stackSourceIndex].removeFirst())
             }
         }
 
